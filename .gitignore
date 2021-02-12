@@ -1,0 +1,9 @@
+.import
+.mono
+.vs
+
+*.csproj
+*.sln
+screenshot_1.png.import
+screenshot_2.png.import
+screenshot_3.png.import

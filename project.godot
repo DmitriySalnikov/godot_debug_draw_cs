@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Debug Draw CS Demo"
+run/main_scene="res://DebugDrawDemoScene.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+DebugDraw="*res://addons/debug_draw_cs/DebugDraw.cs"
+
+[display]
+
+window/vsync/use_vsync=false
+window/vsync/vsync_via_compositor=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "debug_draw_cs" )
