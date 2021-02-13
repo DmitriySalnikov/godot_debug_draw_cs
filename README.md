@@ -4,6 +4,10 @@ This is a debug drawing script, which you can setup as an autoload singleton. Wr
 
 Inspired by Zilann's addon for the GDScript https://github.com/Zylann/godot_debug_draw
 
+## Donations
+
+[Paypal](https://paypal.me/dmitriysalnikov)
+
 ## Features
 
 Primitives:
