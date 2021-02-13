@@ -1,3 +1,5 @@
+![icon](icon.png)
+
 # Debug drawing utility
 
 This is a debug drawing script, which you can setup as an autoload singleton. Written in C#, so only Godot Mono supported.
@@ -55,14 +57,14 @@ public override void _Process(float delta)
 }
 ```
 
-![image](screenshots/screenshot_3.png)
+![screenshot_3](screenshots/screenshot_3.png)
 
 If you see `ERROR: _gl_debug_print: GL ERROR: Source: OpenGL  Type: Error ID: 1281   Severity: High   Message: GL_INVALID_VALUE error generated. Invalid offset and/or size.`, try increasing the value of `rendering/limits/buffers/immediate_buffer_size_kb`.
 
 ## More screenshots
 
 `DebugDrawDemoScene.tscn` in editor
-![image](screenshots/screenshot_1.png)
+![screenshot_1](screenshots/screenshot_1.png)
 
 `DebugDrawDemoScene.tscn` in play mode
-![image](screenshots/screenshot_2.png)
+![screenshot_2](screenshots/screenshot_2.png)
