@@ -51,12 +51,14 @@ public override void _Process(float delta)
 }
 ```
 
-![image](screenshot_3.png)
+![image](screenshots/screenshot_3.png)
+
+If you see `ERROR: _gl_debug_print: GL ERROR: Source: OpenGL  Type: Error ID: 1281   Severity: High   Message: GL_INVALID_VALUE error generated. Invalid offset and/or size.`, try increasing the value of `rendering/limits/buffers/immediate_buffer_size_kb`.
 
 ## More screenshots
 
 `DebugDrawDemoScene.tscn` in editor
-![image](screenshot_1.png)
+![image](screenshots/screenshot_1.png)
 
 `DebugDrawDemoScene.tscn` in play mode
-![image](screenshot_2.png)
+![image](screenshots/screenshot_2.png)
