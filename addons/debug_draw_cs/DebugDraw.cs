@@ -1076,6 +1076,10 @@ namespace DebugDrawInteranlFunctionality
         {
             var mmi = new MultiMeshInstance()
             {
+                CastShadow = GeometryInstance.ShadowCastingSetting.Off,
+                GenerateLightmap = false,
+                UseInBakedLight = false,
+
                 MaterialOverride = new SpatialMaterial()
                 {
                     FlagsUnshaded = true,
@@ -1560,20 +1564,24 @@ namespace DebugDrawInteranlFunctionality
 
             // Get camera frustum
             var frustum_array = DebugDraw.CustomViewport == null || DebugDraw.ForceUseCameraFromScene ?
-                debugDraw.GetViewport().GetCamera().GetFrustum() :
+                debugDraw.GetViewport().GetCamera()?.GetFrustum() :
                 DebugDraw.CustomViewport.GetCamera().GetFrustum();
 
             // Convert frustum to C# array
-            var f = new Plane[frustum_array.Count];
-            for (int i = 0; i < frustum_array.Count; i++)
-                f[i] = ((Plane)frustum_array[i]);
+            Plane[] f = null;
+            if (frustum_array != null)
+            {
+                f = new Plane[frustum_array.Count];
+                for (int i = 0; i < frustum_array.Count; i++)
+                    f[i] = ((Plane)frustum_array[i]);
+            }
 
             // Check visibility of all objects
 
             lock (dataLock)
             {
                 // Update visibility
-                if (DebugDraw.UseFrustumCulling)
+                if (DebugDraw.UseFrustumCulling && f != null)
                 {
                     // Update immediate geometry
                     foreach (var _lines in _wireMeshes)
