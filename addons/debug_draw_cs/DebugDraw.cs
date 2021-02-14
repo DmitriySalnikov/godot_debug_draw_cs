@@ -1076,6 +1076,7 @@ namespace DebugDrawInteranlFunctionality
         {
             var mmi = new MultiMeshInstance()
             {
+                Name = name,
                 CastShadow = GeometryInstance.ShadowCastingSetting.Off,
                 GenerateLightmap = false,
                 UseInBakedLight = false,
@@ -1093,7 +1094,6 @@ namespace DebugDrawInteranlFunctionality
                 TransformFormat = MultiMesh.TransformFormatEnum.Transform3d,
             };
 
-            mmi.Name = name;
             root.AddChild(mmi);
             all_mmi_with_values.Add(mmi, new HashSet<DelayedRendererInstance>());
             return mmi;
@@ -1442,6 +1442,10 @@ namespace DebugDrawInteranlFunctionality
             _immediateGeometry = new ImmediateGeometry()
             {
                 Name = nameof(_immediateGeometry),
+                CastShadow = GeometryInstance.ShadowCastingSetting.Off,
+                GenerateLightmap = false,
+                UseInBakedLight = false,
+
                 MaterialOverride = new SpatialMaterial()
                 {
                     FlagsUnshaded = true,
