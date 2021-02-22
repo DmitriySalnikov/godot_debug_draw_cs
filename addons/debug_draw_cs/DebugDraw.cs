@@ -1,4 +1,4 @@
-﻿using Godot;
+using Godot;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -1078,7 +1078,6 @@ namespace DebugDrawInteranlFunctionality
             {
                 Name = name,
                 CastShadow = GeometryInstance.ShadowCastingSetting.Off,
-                GenerateLightmap = false,
                 UseInBakedLight = false,
 
                 MaterialOverride = new SpatialMaterial()
@@ -1443,7 +1442,6 @@ namespace DebugDrawInteranlFunctionality
             {
                 Name = nameof(_immediateGeometry),
                 CastShadow = GeometryInstance.ShadowCastingSetting.Off,
-                GenerateLightmap = false,
                 UseInBakedLight = false,
 
                 MaterialOverride = new SpatialMaterial()

@@ -25,4 +25,4 @@ window/vsync/vsync_via_compositor=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "debug_draw_cs" )
+enabled=PoolStringArray( "res://addons/debug_draw_cs/plugin.cfg" )
