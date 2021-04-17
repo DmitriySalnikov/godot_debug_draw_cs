@@ -276,6 +276,7 @@ public class DebugDraw : Node
 
     public override void _Ready()
     {
+        ProcessPriority = int.MaxValue;
         internalInstance.Ready();
     }
 
