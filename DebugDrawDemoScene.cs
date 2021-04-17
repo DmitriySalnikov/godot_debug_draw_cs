@@ -6,6 +6,15 @@ using System.Linq;
 public class DebugDrawDemoScene : Spatial
 {
 	[Export] bool ZylannExample = false;
+	Vector3 start_pos;
+	CSGBox box = null;
+
+	public override void _Ready()
+	{
+		box = GetNodeOrNull<CSGBox>("LagTest");
+		start_pos = box.Translation;
+		ProcessPriority = 1;
+	}
 
 	public override void _Process(float delta)
 	{
@@ -114,6 +123,15 @@ public class DebugDrawDemoScene : Spatial
 			DebugDraw.SetText("Instances", DebugDraw.RenderCount.Instances, 1);
 			DebugDraw.SetText("Wireframes", DebugDraw.RenderCount.Wireframes, 2);
 			DebugDraw.EndTextGroup();
+		}
+
+		// Lag Test
+		{
+			if (!Engine.EditorHint && box != null)
+			{
+				box.Translation = start_pos + new Vector3(Mathf.Sin(OS.GetTicksMsec() / 100.0f) * 2.5f, 0, 0);
+				DebugDraw.DrawBox(box.GlobalTransform.origin, Vector3.One * 2f);
+			}
 		}
 	}
 
