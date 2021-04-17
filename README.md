@@ -8,7 +8,9 @@ Inspired by Zilann's addon for the GDScript https://github.com/Zylann/godot_debu
 
 ## Donations
 
-[Paypal](https://paypal.me/dmitriysalnikov)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I2I53VZ2D)
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/dmitriysalnikov)
 
 ## Features
 
