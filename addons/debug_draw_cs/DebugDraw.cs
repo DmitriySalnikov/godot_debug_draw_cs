@@ -216,7 +216,7 @@ public class DebugDraw : Node
 
 #if DEBUG
 
-    static DebugDrawInteranlFunctionality.DebugDrawImplementation internalInstance = null;
+    static DebugDrawInternalFunctionality.DebugDrawImplementation internalInstance = null;
     static DebugDraw instance = null;
 
     /// <summary>
@@ -241,7 +241,7 @@ public class DebugDraw : Node
             throw new Exception("Only 1 instance of DebugDraw is allowed");
 
         Name = nameof(DebugDraw);
-        internalInstance = new DebugDrawInteranlFunctionality.DebugDrawImplementation(this);
+        internalInstance = new DebugDrawInternalFunctionality.DebugDrawImplementation(this);
     }
 
     public override void _EnterTree()
@@ -408,7 +408,7 @@ public class DebugDraw : Node
     public static void DrawBox(Vector3 position, Vector3 size, Color? color = null, float duration = 0f, bool isBoxCentered = true)
     {
 #if DEBUG
-        internalInstance?.DrawBoxInteranl(ref position, ref size, ref color, duration, isBoxCentered);
+        internalInstance?.DrawBoxInternal(ref position, ref size, ref color, duration, isBoxCentered);
 #endif
     }
 
@@ -424,7 +424,7 @@ public class DebugDraw : Node
     public static void DrawBox(Vector3 position, Quat rotation, Vector3 size, Color? color = null, float duration = 0f, bool isBoxCentered = true)
     {
 #if DEBUG
-        internalInstance?.DrawBoxInteranl(ref position, ref rotation, ref size, ref color, duration, isBoxCentered);
+        internalInstance?.DrawBoxInternal(ref position, ref rotation, ref size, ref color, duration, isBoxCentered);
 #endif
     }
 
@@ -438,7 +438,7 @@ public class DebugDraw : Node
     public static void DrawBox(Transform transform, Color? color = null, float duration = 0f, bool isBoxCentered = true)
     {
 #if DEBUG
-        internalInstance?.DrawBoxInteranl(ref transform, ref color, duration, isBoxCentered);
+        internalInstance?.DrawBoxInternal(ref transform, ref color, duration, isBoxCentered);
 #endif
     }
 
@@ -452,7 +452,7 @@ public class DebugDraw : Node
     public static void DrawAABB(Vector3 a, Vector3 b, Color? color = null, float duration = 0f)
     {
 #if DEBUG
-        internalInstance?.DrawAABBInteranl(ref a, ref b, ref color, duration);
+        internalInstance?.DrawAABBInternal(ref a, ref b, ref color, duration);
 #endif
     }
 
@@ -465,7 +465,7 @@ public class DebugDraw : Node
     public static void DrawAABB(AABB aabb, Color? color = null, float duration = 0f)
     {
 #if DEBUG
-        internalInstance?.DrawAABBInteranl(ref aabb, ref color, duration);
+        internalInstance?.DrawAABBInternal(ref aabb, ref color, duration);
 #endif
     }
 
@@ -772,7 +772,7 @@ public class DebugDraw : Node
 
 #if DEBUG
 
-namespace DebugDrawInteranlFunctionality
+namespace DebugDrawInternalFunctionality
 {
     #region Renderable Primitives
 
@@ -1811,15 +1811,15 @@ namespace DebugDrawInteranlFunctionality
 
         #region Boxes
 
-        public void DrawBoxInteranl(ref Vector3 position, ref Vector3 size, ref Color? color, float duration, bool isBoxCentered)
+        public void DrawBoxInternal(ref Vector3 position, ref Vector3 size, ref Color? color, float duration, bool isBoxCentered)
         {
             if (!DebugDraw.DebugEnabled) return;
 
             var q = Quat.Identity;
-            DrawBoxInteranl(ref position, ref q, ref size, ref color, duration, isBoxCentered);
+            DrawBoxInternal(ref position, ref q, ref size, ref color, duration, isBoxCentered);
         }
 
-        public void DrawBoxInteranl(ref Vector3 position, ref Quat rotation, ref Vector3 size, ref Color? color, float duration, bool isBoxCentered)
+        public void DrawBoxInternal(ref Vector3 position, ref Quat rotation, ref Vector3 size, ref Color? color, float duration, bool isBoxCentered)
         {
             if (!DebugDraw.DebugEnabled) return;
 
@@ -1847,7 +1847,7 @@ namespace DebugDrawInteranlFunctionality
             }
         }
 
-        public void DrawBoxInteranl(ref Transform transform, ref Color? color, float duration, bool isBoxCentered)
+        public void DrawBoxInternal(ref Transform transform, ref Color? color, float duration, bool isBoxCentered)
         {
             if (!DebugDraw.DebugEnabled) return;
 
@@ -1873,18 +1873,18 @@ namespace DebugDrawInteranlFunctionality
             }
         }
 
-        public void DrawAABBInteranl(ref AABB box, ref Color? color, float duration)
+        public void DrawAABBInternal(ref AABB box, ref Color? color, float duration)
         {
             if (!DebugDraw.DebugEnabled) return;
-            GetDiagonalVectors(box.Position, box.Size, out Vector3 bottom, out _, out Vector3 diag);
-            DrawBoxInteranl(ref bottom, ref diag, ref color, duration, false);
+            GetDiagonalVectors(box.Position, box.End, out Vector3 bottom, out _, out Vector3 diag);
+            DrawBoxInternal(ref bottom, ref diag, ref color, duration, false);
         }
 
-        public void DrawAABBInteranl(ref Vector3 a, ref Vector3 b, ref Color? color, float duration)
+        public void DrawAABBInternal(ref Vector3 a, ref Vector3 b, ref Color? color, float duration)
         {
             if (!DebugDraw.DebugEnabled) return;
             GetDiagonalVectors(a, b, out Vector3 bottom, out _, out Vector3 diag);
-            DrawBoxInteranl(ref bottom, ref diag, ref color, duration, false);
+            DrawBoxInternal(ref bottom, ref diag, ref color, duration, false);
         }
 
         #endregion // Boxes
