@@ -12,6 +12,8 @@ Inspired by Zilann's addon for the GDScript https://github.com/Zylann/godot_debu
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/dmitriysalnikov)
 
+[<img src="https://jobs.qiwi.com/assets/media/logo-mobile.83a2407e.svg" alt="qiwi" width=90px/>](https://qiwi.com/n/DMITRIYSALNIKOV)
+
 ## Features
 
 Primitives:
