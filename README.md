@@ -1,10 +1,14 @@
 ![icon](icon.png)
 
+# Obsolete!
+
+Use my new GDNative addon instead https://github.com/DmitriySalnikov/godot_debug_draw_3d
+
 # Debug drawing utility
 
 This is a debug drawing script, which you can setup as an autoload singleton. Written in C#, so only Godot Mono supported.
 
-Inspired by Zilann's addon for the GDScript https://github.com/Zylann/godot_debug_draw
+Inspired by Zylann's addon for the GDScript https://github.com/Zylann/godot_debug_draw
 
 ## Donations
 
